@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favourite Destinations - Travel Information Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-icon">✈️</span>
+                <span>Travel<span class="highlight">Info</span></span>
+            </a>
+            <ul id="auth-nav" class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="favourites.html" class="active">❤️ My Favourites</a></li>
+                <li><a href="login.html" class="btn btn-outline" style="padding: 0.4rem 1rem;">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Favourites Page Content -->
+    <main class="container">
+        
+        <div class="section-header">
+            <div>
+                <h2>❤️ My Favourite Destinations</h2>
+                <p>All your saved travel spots in one place</p>
+            </div>
+            <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
+                <button id="clear-all-favs-btn" onclick="clearAllFavourites()" class="btn btn-danger" style="display: none; padding: 0.5rem 1.1rem; font-size: 0.9rem;">
+                    🗑️ Clear All Favourites
+                </button>
+                <a href="index.html" class="btn btn-primary">+ Explore More</a>
+            </div>
+        </div>
+
+        <!-- Saved Favourites Grid -->
+        <div id="favourites-list" class="destinations-grid">
+            <div class="empty-state" style="grid-column: 1 / -1;">
+                <p>Loading your saved destinations...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                &copy; 2026 Travel Information Management System. Developed and Designed by Sakshi Thorat.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Load user favourites when page is opened
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFavouritesPage();
+        });
+    </script>
+</body>
+</html>
