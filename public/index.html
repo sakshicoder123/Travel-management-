@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Information Management System - Explore the World</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-icon">✈️</span>
+                <span>Travel<span class="highlight">Info</span></span>
+            </a>
+            <ul id="auth-nav" class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="login.html" class="btn btn-outline" style="padding: 0.4rem 1rem;">Login</a></li>
+                <li><a href="register.html" class="btn btn-primary" style="padding: 0.4rem 1rem;">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Search Box -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-tagline">✨ Plan Your Next Dream Trip</span>
+            <h1>Explore the World</h1>
+            <p>Discover top tourist destinations, budget estimates, popular attractions, and live geographical coordinates instantly.</p>
+
+            <!-- Search Bar Form -->
+            <form onsubmit="handleHomeSearch(event)" class="search-box-wrapper">
+                <span class="search-icon">🔍</span>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Search destination (e.g. Goa, Manali, Jaipur, Kerala)..." 
+                    autocomplete="off"
+                    oninput="handleLiveSearch(this.value)"
+                >
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+
+            <!-- Quick Suggestions Tags -->
+            <div class="quick-tags">
+                <span class="label">Popular Searches:</span>
+                <button type="button" class="tag-btn" onclick="quickSearch('Goa')">Goa</button>
+                <button type="button" class="tag-btn" onclick="quickSearch('Manali')">Manali</button>
+                <button type="button" class="tag-btn" onclick="quickSearch('Jaipur')">Jaipur</button>
+                <button type="button" class="tag-btn" onclick="quickSearch('Kerala')">Kerala</button>
+                <button type="button" class="tag-btn" onclick="quickSearch('Ladakh')">Ladakh</button>
+                <button type="button" class="tag-btn" onclick="quickSearch('Varanasi')">Varanasi</button>
+                <button type="button" class="tag-btn" onclick="quickSearch('Srinagar')">Srinagar</button>
+                <button type="button" class="tag-btn" onclick="quickSearch('Ooty')">Ooty</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Category Filter Bar -->
+    <section class="category-filter-bar" id="category-filter-bar">
+        <button class="filter-pill active" onclick="filterByCategory('all', this)">🌟 All Destinations</button>
+        <button class="filter-pill" onclick="filterByCategory('beach', this)">🏖️ Beaches & Coastal</button>
+        <button class="filter-pill" onclick="filterByCategory('hills', this)">🏔️ Hill Stations</button>
+        <button class="filter-pill" onclick="filterByCategory('heritage', this)">👑 Royal Heritage</button>
+        <button class="filter-pill" onclick="filterByCategory('nature', this)">🌿 Nature & Backwaters</button>
+        <button class="filter-pill" onclick="filterByCategory('spiritual', this)">🛕 Spiritual</button>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+            <div>
+                <h2 id="destinations-title">Popular Destinations</h2>
+                <p>Browse handpicked tourist attractions and travel information</p>
+            </div>
+            <button class="btn btn-outline" onclick="resetSearch()">🔄 Show All</button>
+        </div>
+
+        <!-- Destination Cards Grid -->
+        <div id="destinations-grid" class="destinations-grid">
+            <!-- Dynamic Cards Loaded by script.js -->
+            <div class="empty-state" style="grid-column: 1 / -1;">
+                <p>Loading destinations...</p>
+            </div>
+        </div>
+
+        <!-- How It Works / Features Section -->
+        <section class="features-section">
+            <div class="section-header" style="margin-top: 2rem;">
+                <div>
+                    <h2>How It Works</h2>
+                    <p>Simple 3-step travel planning system</p>
+                </div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔍</span>
+                    <h4>1. Search Place</h4>
+                    <p>Type in your desired location or select from our curated recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🗺️</span>
+                    <h4>2. Live Google Maps</h4>
+                    <p>Interactive Google Maps view, real coordinates, and direct directions.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">❤️</span>
+                    <h4>3. Save to Favourites</h4>
+                    <p>Login to your account and save destinations to build your personal bucket list.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">✈️ Travel Information Management System</div>
+            <p>A simple, beginner-friendly full-stack web project using Node.js, Express, MySQL, and OpenStreetMap API.</p>
+            <div class="footer-bottom">
+                &copy; 2026 Travel Information Management System. Developed and Designed by Sakshi Thorat.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Load destinations when home page is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHomeDestinations();
+        });
+    </script>
+</body>
+</html>
